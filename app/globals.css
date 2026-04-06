@@ -210,7 +210,7 @@ input {
   min-height: 180px;
   background:
     linear-gradient(rgba(47, 33, 28, 0.42), rgba(47, 33, 28, 0.42)),
-    url("/assets/lunch-banner.webp") center/cover no-repeat;
+    url("/assets/lunch-banner-new.jpeg") center/cover no-repeat;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }

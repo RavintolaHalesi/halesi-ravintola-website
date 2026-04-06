@@ -366,7 +366,7 @@ export default function HomePage() {
             </p>
             <p>
               <span>{t.contactPhoneLabel}:</span>{" "}
-              <a href="tel:+3580458614440">+358 045 861 4440</a>
+              <a href="tel:+3580413287884">+358 041 328 7884</a>
             </p>
             <p>
               <span>{t.contactAddressLabel}:</span> Hämeenkatu 27-29, 05800 Hyvinkää

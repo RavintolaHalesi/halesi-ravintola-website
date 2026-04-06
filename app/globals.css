@@ -331,7 +331,7 @@ input {
 
 .hoursList {
   display: grid;
-  gap: 14px;
+  gap: 18px;
   margin-top: 18px;
 }
 
@@ -363,12 +363,16 @@ input {
 }
 
 .reservationCard {
+  display: grid;
+  gap: 16px;
   padding: 26px;
 }
 
+
 .reservationCard input {
   width: 100%;
-  margin-bottom: 14px;
+  min-height: 56px;
+  margin-bottom: 0;
   border: 1px solid #d8b8a1;
   border-radius: 12px;
   background: #fff;
@@ -383,14 +387,14 @@ input {
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 18px;
 }
 
 .reservationCard button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 6px;
+  margin-top: 2px;
   border: none;
   border-radius: 999px;
   background: var(--brand);
@@ -486,7 +490,7 @@ input {
   }
 
   .topbar {
-    grid-template-columns: 108px 1fr;
+    grid-template-columns: 78px 1fr;
     padding: 0 18px 0 0;
   }
 
@@ -498,6 +502,7 @@ input {
     display: none;
     grid-column: 1 / -1;
     padding: 0 18px 18px;
+    margin-top: -6px;
   }
 
   .mobileNavOpen .navPanel {
@@ -540,8 +545,37 @@ input {
     align-items: flex-start;
   }
 
-  .formRow {
+  .reservationCard {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .compactRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .secondaryRow {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .logoPanel {
+    min-height: 78px;
+  }
+
+  .logoPanel img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .mobileMenuBtn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .reservationIntro h2 {
+    font-size: 1.85rem;
   }
 
   .heroCopy h1 {

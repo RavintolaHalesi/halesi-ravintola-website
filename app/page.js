@@ -133,6 +133,45 @@ export default function HomePage() {
   useEffect(() => {
     setMobileNavOpen(false);
   }, [language]);
+
+  useEffect(() => {
+    const switchableInputs = document.querySelectorAll('[data-mobile-switch]');
+
+    function activateInput(event) {
+      const input = event.currentTarget;
+      const nextType = input.dataset.mobileSwitch;
+      if (!nextType || input.type === nextType) {
+        return;
+      }
+      input.type = nextType;
+      requestAnimationFrame(() => input.showPicker?.());
+    }
+
+    function restoreInput(event) {
+      const input = event.currentTarget;
+      const originalType = input.dataset.mobileSwitch;
+      if (!originalType) {
+        return;
+      }
+      if (!input.value) {
+        input.type = 'text';
+      }
+    }
+
+    switchableInputs.forEach((input) => {
+      input.addEventListener('focus', activateInput);
+      input.addEventListener('click', activateInput);
+      input.addEventListener('blur', restoreInput);
+    });
+
+    return () => {
+      switchableInputs.forEach((input) => {
+        input.removeEventListener('focus', activateInput);
+        input.removeEventListener('click', activateInput);
+        input.removeEventListener('blur', restoreInput);
+      });
+    };
+  }, [language]);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
   const t = translations[language];
@@ -261,32 +300,48 @@ export default function HomePage() {
 
           <div className="reservationLayout">
             <form className="reservationCard" onSubmit={handleSubmit}>
-            <input name="name" type="text" placeholder={t.formName} required />
-            <input name="phone" type="tel" placeholder={t.formPhone} required />
+              <input name="name" type="text" placeholder={t.formName} required />
+              <input name="phone" type="tel" placeholder={t.formPhone} required />
 
-            <div className="formRow">
-              <input name="date" type="date" aria-label={t.formDate} required />
-              <input name="time" type="time" aria-label={t.formTime} required />
-            </div>
+              <div className="formRow compactRow">
+                <input
+                  name="date"
+                  type="text"
+                  inputMode="none"
+                  placeholder={t.formDate}
+                  aria-label={t.formDate}
+                  data-mobile-switch="date"
+                  required
+                />
+                <input
+                  name="time"
+                  type="text"
+                  inputMode="none"
+                  placeholder={t.formTime}
+                  aria-label={t.formTime}
+                  data-mobile-switch="time"
+                  required
+                />
+              </div>
 
-            <div className="formRow">
-              <input
-                name="guests"
-                type="number"
-                min="1"
-                max="20"
-                defaultValue="2"
-                aria-label={t.formGuests}
-                required
-              />
-              <input name="notes" type="text" placeholder={t.formNotes} />
-            </div>
+              <div className="formRow secondaryRow">
+                <input
+                  name="guests"
+                  type="number"
+                  min="1"
+                  max="20"
+                  placeholder={t.formGuests}
+                  aria-label={t.formGuests}
+                  required
+                />
+                <input name="notes" type="text" placeholder={t.formNotes} />
+              </div>
 
-            <button type="submit" disabled={loading}>
-              {loading ? `${t.reserveButton}...` : t.reserveButton}
-            </button>
-            <p className={`formMessage ${status.type}`}>{status.message}</p>
-          </form>
+              <button type="submit" disabled={loading}>
+                {loading ? `${t.reserveButton}...` : t.reserveButton}
+              </button>
+              <p className={`formMessage ${status.type}`}>{status.message}</p>
+            </form>
 
             <div className="card hoursCard reservationHoursCard">
               <h3>{t.hoursTitle}</h3>

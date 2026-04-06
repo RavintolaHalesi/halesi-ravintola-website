@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halesi Ravintola Gallery</title>
+    <style>
+      :root {
+        --brand: #AE2108;
+        --brand-dark: #8E1C06;
+        --cream: #fff9f4;
+        --ink: #2f211c;
+        --muted: #71544a;
+        --border: #e4d3c5;
+        --shadow: 0 10px 30px rgba(72, 39, 25, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #f5ece3 0%, #eadfd4 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: 108px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 1rem;
+        padding-right: 1rem;
+        background: var(--brand);
+      }
+
+      .logoPanel {
+        display: grid;
+        place-items: center;
+        min-height: 108px;
+        background: #fff7f4;
+      }
+
+      .logoPanel img {
+        width: 88px;
+        height: 88px;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.8rem;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+      }
+
+      .nav a {
+        color: #fff;
+        font-size: 1.16rem;
+      }
+
+      .langSwitch {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .langBtn {
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: transparent;
+        color: #fff;
+        padding: 0.45rem 0.7rem;
+        cursor: pointer;
+      }
+
+      .langBtn.active {
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .hero {
+        padding: 40px 32px 20px;
+      }
+
+      .heroCard {
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: var(--cream);
+        box-shadow: var(--shadow);
+      }
+
+      .heroCard h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+      }
+
+      .galleryGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        padding: 0 32px 40px;
+      }
+
+      .galleryCard {
+        overflow: hidden;
+        border-radius: 20px;
+        background: var(--cream);
+        box-shadow: var(--shadow);
+      }
+
+      .galleryCard img {
+        display: block;
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+      }
+
+      @media (max-width: 900px) {
+        .galleryGrid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 800px) {
+        .topbar {
+          grid-template-columns: 108px 1fr;
+          padding-right: 0;
+        }
+
+        .langSwitch {
+          grid-column: 1 / -1;
+          justify-content: center;
+          padding: 0 0 14px;
+        }
+
+        .hero {
+          padding: 28px 18px 18px;
+        }
+
+        .galleryGrid {
+          grid-template-columns: 1fr;
+          padding: 0 18px 28px;
+        }
+
+        .galleryCard img {
+          height: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="logoPanel" href="/#home">
+          <img src="/assets/logo.png" alt="Halesi Ravintola logo" />
+        </a>
+        <nav class="nav">
+          <a href="/#home" data-i18n="navHome">Home</a>
+          <a href="/menu.html" data-i18n="navMenu">Menu</a>
+          <a href="/#reservation" data-i18n="navReservation">Reservation</a>
+          <a href="/#contact" data-i18n="navContact">Contact</a>
+          <a href="/#about" data-i18n="navAbout">About Us</a>
+          <a href="/gallery.html" data-i18n="navGallery">Gallery</a>
+        </nav>
+        <div class="langSwitch">
+          <button class="langBtn active" data-lang="en" type="button">EN</button>
+          <button class="langBtn" data-lang="fi" type="button">FI</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="heroCard">
+          <h1 data-i18n="title">Gallery</h1>
+        </div>
+      </section>
+
+      <section class="galleryGrid">
+        <div class="galleryCard"><img src="/assets/gallery-1.jpeg" alt="Momo Chowmein combo" /></div>
+        <div class="galleryCard"><img src="/assets/gallery-2.jpeg" alt="Restaurant dish" /></div>
+        <div class="galleryCard"><img src="/assets/gallery-3.jpeg" alt="A la carte dish" /></div>
+        <div class="galleryCard"><img src="/assets/gallery-4.jpeg" alt="Restaurant curry dish" /></div>
+        <div class="galleryCard"><img src="/assets/gallery-5.jpeg" alt="Creamy curry with rice and naan" /></div>
+        <div class="galleryCard"><img src="/assets/gallery-6.jpeg" alt="Chicken curry with rice and naan" /></div>
+      </section>
+    </div>
+
+    <script>
+      const translations = {
+        en: {
+          navHome: "Home",
+          navMenu: "Menu",
+          navGallery: "Gallery",
+          navReservation: "Reservation",
+          navContact: "Contact",
+          navAbout: "About Us",
+          title: "Gallery"
+        },
+        fi: {
+          navHome: "Etusivu",
+          navMenu: "Menu",
+          navGallery: "Galleria",
+          navReservation: "Varaus",
+          navContact: "Yhteystiedot",
+          navAbout: "Meistä",
+          title: "Galleria"
+        }
+      };
+
+      const buttons = document.querySelectorAll('.langBtn');
+      const nodes = document.querySelectorAll('[data-i18n]');
+
+      function applyLanguage(language) {
+        document.documentElement.lang = language;
+        document.title = language === 'fi' ? 'Halesi Ravintola Galleria' : 'Halesi Ravintola Gallery';
+        localStorage.setItem('halesi-language', language);
+        nodes.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (translations[language][key]) {
+            node.textContent = translations[language][key];
+          }
+        });
+        buttons.forEach((button) => {
+          button.classList.toggle('active', button.dataset.lang === language);
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => applyLanguage(button.dataset.lang));
+      });
+
+      applyLanguage(localStorage.getItem('halesi-language') || 'en');
+    </script>
+  </body>
+</html>

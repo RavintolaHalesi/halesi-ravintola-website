@@ -121,6 +121,7 @@ function ImagePlaceholder({ label, tone = "warm" }) {
 
 export default function HomePage() {
   const [language, setLanguage] = useState("en");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("halesi-language");
@@ -128,6 +129,10 @@ export default function HomePage() {
       setLanguage(savedLanguage);
     }
   }, []);
+
+  useEffect(() => {
+    setMobileNavOpen(false);
+  }, [language]);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
   const t = translations[language];
@@ -166,35 +171,49 @@ export default function HomePage() {
   return (
     <><ScrollReset /><main className="page">
       <div className="shell">
-        <header className="topbar">
+        <header className={`topbar ${mobileNavOpen ? "mobileNavOpen" : ""}`}>
           <a className="logoPanel" href="#home" aria-label="Halesi Ravintola home">
             <img src="/assets/logo.png" alt="Halesi Ravintola logo" />
           </a>
 
-          <nav className="nav">
-            <a href="#home">{t.navHome}</a>
-            <a href="/menu.html">{t.navMenu}</a>
-            <a href="#reservation">{t.navReservation}</a>
-            <a href="#contact">{t.navContact}</a>
-            <a href="#about">{t.navAbout}</a>
-            <a href="/gallery.html">{t.navGallery}</a>
-          </nav>
+          <button
+            type="button"
+            className="mobileMenuBtn"
+            aria-label="Toggle navigation"
+            aria-expanded={mobileNavOpen}
+            onClick={() => setMobileNavOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
 
-          <div className="langSwitch" aria-label="Language switcher">
-            <button
-              type="button"
-              className={language === "en" ? "langBtn active" : "langBtn"}
-              onClick={() => { localStorage.setItem("halesi-language", "en"); setLanguage("en"); }}
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              className={language === "fi" ? "langBtn active" : "langBtn"}
-              onClick={() => { localStorage.setItem("halesi-language", "fi"); setLanguage("fi"); }}
-            >
-              FI
-            </button>
+          <div className="navPanel">
+            <nav className="nav">
+              <a href="#home" onClick={() => setMobileNavOpen(false)}>{t.navHome}</a>
+              <a href="/menu.html" onClick={() => setMobileNavOpen(false)}>{t.navMenu}</a>
+              <a href="#reservation" onClick={() => setMobileNavOpen(false)}>{t.navReservation}</a>
+              <a href="#contact" onClick={() => setMobileNavOpen(false)}>{t.navContact}</a>
+              <a href="#about" onClick={() => setMobileNavOpen(false)}>{t.navAbout}</a>
+              <a href="/gallery.html" onClick={() => setMobileNavOpen(false)}>{t.navGallery}</a>
+            </nav>
+
+            <div className="langSwitch" aria-label="Language switcher">
+              <button
+                type="button"
+                className={language === "en" ? "langBtn active" : "langBtn"}
+                onClick={() => { localStorage.setItem("halesi-language", "en"); setLanguage("en"); }}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                className={language === "fi" ? "langBtn active" : "langBtn"}
+                onClick={() => { localStorage.setItem("halesi-language", "fi"); setLanguage("fi"); }}
+              >
+                FI
+              </button>
+            </div>
           </div>
         </header>
 

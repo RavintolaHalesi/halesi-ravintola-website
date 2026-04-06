@@ -209,7 +209,7 @@ input {
   gap: 1.5rem;
   min-height: 180px;
   background:
-    linear-gradient(rgba(255, 248, 242, 0.12), rgba(255, 248, 242, 0.12)),
+    linear-gradient(rgba(47, 33, 28, 0.26), rgba(47, 33, 28, 0.26)),
     url("/assets/lunch-banner-enhanced.png") center/cover no-repeat;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);

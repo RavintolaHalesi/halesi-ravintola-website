@@ -532,6 +532,7 @@ input {
   }
 
   .topbar {
+    position: static;
     grid-template-columns: 78px 1fr;
     padding: 0 18px 0 0;
   }

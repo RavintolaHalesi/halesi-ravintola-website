@@ -395,6 +395,27 @@ input {
   color: #8a6a5c;
 }
 
+.pickerField {
+  position: relative;
+}
+
+.pickerField input {
+  padding-right: 2.75rem;
+}
+
+.pickerPlaceholder {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8a6a5c;
+  pointer-events: none;
+}
+
+.pickerField.hasValue .pickerPlaceholder {
+  display: none;
+}
+
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -122,6 +122,8 @@ function ImagePlaceholder({ label, tone = "warm" }) {
 export default function HomePage() {
   const [language, setLanguage] = useState("en");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [dateValue, setDateValue] = useState("");
+  const [timeValue, setTimeValue] = useState("");
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("halesi-language");
@@ -134,44 +136,6 @@ export default function HomePage() {
     setMobileNavOpen(false);
   }, [language]);
 
-  useEffect(() => {
-    const switchableInputs = document.querySelectorAll('[data-mobile-switch]');
-
-    function activateInput(event) {
-      const input = event.currentTarget;
-      const nextType = input.dataset.mobileSwitch;
-      if (!nextType || input.type === nextType) {
-        return;
-      }
-      input.type = nextType;
-      requestAnimationFrame(() => input.showPicker?.());
-    }
-
-    function restoreInput(event) {
-      const input = event.currentTarget;
-      const originalType = input.dataset.mobileSwitch;
-      if (!originalType) {
-        return;
-      }
-      if (!input.value) {
-        input.type = 'text';
-      }
-    }
-
-    switchableInputs.forEach((input) => {
-      input.addEventListener('focus', activateInput);
-      input.addEventListener('click', activateInput);
-      input.addEventListener('blur', restoreInput);
-    });
-
-    return () => {
-      switchableInputs.forEach((input) => {
-        input.removeEventListener('focus', activateInput);
-        input.removeEventListener('click', activateInput);
-        input.removeEventListener('blur', restoreInput);
-      });
-    };
-  }, [language]);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
   const t = translations[language];
@@ -200,6 +164,8 @@ export default function HomePage() {
 
       setStatus({ type: "success", message: t.reservationSuccess });
       form.reset();
+      setDateValue("");
+      setTimeValue("");
     } catch (error) {
       setStatus({ type: "error", message: error.message || t.reservationError });
     } finally {
@@ -304,24 +270,28 @@ export default function HomePage() {
               <input name="phone" type="tel" placeholder={t.formPhone} required />
 
               <div className="formRow compactRow">
-                <input
-                  name="date"
-                  type="text"
-                  inputMode="none"
-                  placeholder={t.formDate}
-                  aria-label={t.formDate}
-                  data-mobile-switch="date"
-                  required
-                />
-                <input
-                  name="time"
-                  type="text"
-                  inputMode="none"
-                  placeholder={t.formTime}
-                  aria-label={t.formTime}
-                  data-mobile-switch="time"
-                  required
-                />
+                <div className={`pickerField ${dateValue ? "hasValue" : ""}`}>
+                  <input
+                    name="date"
+                    type="date"
+                    aria-label={t.formDate}
+                    value={dateValue}
+                    onChange={(event) => setDateValue(event.target.value)}
+                    required
+                  />
+                  {!dateValue && <span className="pickerPlaceholder">{t.formDate}</span>}
+                </div>
+                <div className={`pickerField ${timeValue ? "hasValue" : ""}`}>
+                  <input
+                    name="time"
+                    type="time"
+                    aria-label={t.formTime}
+                    value={timeValue}
+                    onChange={(event) => setTimeValue(event.target.value)}
+                    required
+                  />
+                  {!timeValue && <span className="pickerPlaceholder">{t.formTime}</span>}
+                </div>
               </div>
 
               <div className="formRow secondaryRow">

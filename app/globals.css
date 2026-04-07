@@ -403,6 +403,15 @@ input {
   padding-right: 2.75rem;
 }
 
+.pickerField input::-webkit-datetime-edit {
+  opacity: 0;
+}
+
+.pickerField.hasValue input::-webkit-datetime-edit,
+.pickerField input:focus::-webkit-datetime-edit {
+  opacity: 1;
+}
+
 .pickerPlaceholder {
   position: absolute;
   left: 1rem;
@@ -412,7 +421,8 @@ input {
   pointer-events: none;
 }
 
-.pickerField.hasValue .pickerPlaceholder {
+.pickerField.hasValue .pickerPlaceholder,
+.pickerField input:focus + .pickerPlaceholder {
   display: none;
 }
 

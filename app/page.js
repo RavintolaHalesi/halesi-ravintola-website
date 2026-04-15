@@ -49,7 +49,15 @@ const translations = {
     aboutText:
       "Halesi also known as halesi mahadev and maratika cave is an ancient and revered spiritual site in eastern Nepal, with origins rooted in early religious tradition and mythology. In Hindu belief, it is associated with Lord Shiva, while in Buddhism it is known as Maratika Cave, linked to Padmasambhava. Recognized for its significance across Hindu, Buddhist, and Kirat traditions, Halesi stands as a lasting symbol of religious harmony and cultural heritage.",
     aboutImage: "Add interior or cultural image here",
-    footerText: "2026 | Ravintola Halesi",
+    footerBrandBlurb: "Authentic Nepalese flavours served in the heart of Hyvinkaa.",
+    footerQuickLinks: "Quick Links",
+    footerContact: "Contact Us",
+    footerSocial: "Follow Us",
+    footerRights: "© 2026 Ravintola Halesi. All rights reserved.",
+    footerInstagram: "Instagram",
+    footerFacebook: "Facebook",
+    footerTikTok: "TikTok",
+    footerLinkedIn: "LinkedIn",
     reservationSuccess: "Reservation received successfully. The email notification was sent.",
     reservationError: "Reservation sending is not configured or something went wrong. Please try again."
   },
@@ -98,7 +106,15 @@ const translations = {
     aboutText:
       "Halesi, joka tunnetaan myos nimilla Halesi Mahadev ja Maratika Cave, on muinainen ja arvostettu hengellinen paikka Ita-Nepalissa. Silla on merkitysta hindulaisessa, buddhalaisessa ja kirat-perinteessa ja se symboloi uskontojen valista harmoniaa ja kulttuuriperintoa.",
     aboutImage: "Lisaa sisakuva tai kulttuurikuva tahan",
-    footerText: "2026 | Ravintola Halesi",
+    footerBrandBlurb: "Aitoja nepalilaisia makuja Hyvinkaan sydamessa.",
+    footerQuickLinks: "Pikalinkit",
+    footerContact: "Ota yhteytta",
+    footerSocial: "Seuraa meita",
+    footerRights: "© 2026 Ravintola Halesi. Kaikki oikeudet pidatetty.",
+    footerInstagram: "Instagram",
+    footerFacebook: "Facebook",
+    footerTikTok: "TikTok",
+    footerLinkedIn: "LinkedIn",
     reservationSuccess: "Varaus vastaanotettiin onnistuneesti. Ilmoitussahkoposti lahetettiin.",
     reservationError: "Varausten lahetys ei ole kaytossa tai jokin meni pieleen. Yrita uudelleen."
   }
@@ -116,6 +132,40 @@ function ImagePlaceholder({ label, tone = "warm" }) {
     <div className={`imagePlaceholder imagePlaceholder-${tone}`}>
       <span>{label}</span>
     </div>
+  );
+}
+
+function SocialIcon({ platform }) {
+  if (platform === "instagram") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="socialIcon">
+        <rect x="4.5" y="4.5" width="15" height="15" rx="4.5" fill="none" stroke="currentColor" strokeWidth="1.9" />
+        <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.9" />
+        <circle cx="17.2" cy="6.9" r="1.1" fill="currentColor" />
+      </svg>
+    );
+  }
+  if (platform === "facebook") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="socialIcon">
+        <path d="M13.5 21v-7.2h2.4l.4-3h-2.8V8.9c0-.9.3-1.5 1.6-1.5h1.4V4.8c-.2 0-.9-.1-1.9-.1-3 0-4.8 1.8-4.8 5.1v1H7.6v3h2.2V21h3.7Z" fill="currentColor" />
+      </svg>
+    );
+  }
+  if (platform === "tiktok") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="socialIcon">
+        <path d="M14.6 4.2c.5 1.5 1.4 2.7 3 3.6v2.6a7 7 0 0 1-3-.9v5.7a5.3 5.3 0 1 1-5.3-5.3c.4 0 .8 0 1.1.1v2.8a2.7 2.7 0 1 0 1.6 2.4V4.2h2.6Z" fill="currentColor" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="socialIcon">
+      <rect x="4.2" y="4.2" width="15.6" height="15.6" rx="2.4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="7.3" y="10.1" width="2.3" height="6.2" fill="currentColor" />
+      <circle cx="8.45" cy="7.8" r="1.3" fill="currentColor" />
+      <path d="M12 10.1h2.2v.9c.5-.7 1.3-1.2 2.5-1.2 2.1 0 3.3 1.4 3.3 4v2.5h-2.4v-2.2c0-1.2-.4-2-1.5-2-1 0-1.7.7-1.7 2v2.2H12v-6.2Z" fill="currentColor" />
+    </svg>
   );
 }
 
@@ -358,7 +408,48 @@ export default function HomePage() {
         </section>
 
         <footer className="footer">
-          <p>{t.footerText}</p>
+          <div className="footerTop">
+            <div className="footerBrand">
+              <div className="footerBrandRow">
+                <img src="/assets/logo.png" alt="Halesi Ravintola logo" className="footerLogo" />
+                <div>
+                  <h3>Ravintola Halesi</h3>
+                  <p>{t.footerBrandBlurb}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="footerLinks">
+              <h4>{t.footerQuickLinks}</h4>
+              <a href="#home">{t.navHome}</a>
+              <a href="/menu.html">{t.navMenu}</a>
+              <a href="#reservation">{t.navReservation}</a>
+              <a href="#contact">{t.navContact}</a>
+              <a href="#about">{t.navAbout}</a>
+              <a href="/gallery.html">{t.navGallery}</a>
+            </div>
+
+            <div className="footerContact">
+              <h4>{t.footerContact}</h4>
+              <a href="mailto:ravintolahalesi@gmail.com">ravintolahalesi@gmail.com</a>
+              <a href="tel:0413287884">0413287884</a>
+              <p><a href="https://maps.app.goo.gl/G32i6h8w52rpSoVG7" target="_blank" rel="noreferrer">Hameenkatu 27-29, 05800 Hyvinkaa</a></p>
+            </div>
+
+            <div className="footerSocial">
+              <h4>{t.footerSocial}</h4>
+              <div className="footerSocialList">
+                <a href="https://www.instagram.com/ravintolahalesi/" target="_blank" rel="noreferrer" aria-label={t.footerInstagram}><SocialIcon platform="instagram" /></a>
+                <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label={t.footerFacebook}><SocialIcon platform="facebook" /></a>
+                <a href="https://www.tiktok.com/@ravintolahalesi?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" aria-label={t.footerTikTok}><SocialIcon platform="tiktok" /></a>
+                <a href="https://www.linkedin.com/in/ravintola-halesi-05991b403/" target="_blank" rel="noreferrer" aria-label={t.footerLinkedIn}><SocialIcon platform="linkedin" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="footerBottom">
+            <p>{t.footerRights}</p>
+          </div>
         </footer>
       </div>
     </main></>

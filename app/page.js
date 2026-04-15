@@ -105,8 +105,8 @@ const translations = {
 };
 
 const openingHours = [
-  { key: "hoursMonThu", value: "10:15-20:00" },
-  { key: "hoursFriday", value: "10:15-21:00" },
+  { key: "hoursMonThu", value: "10:30-20:00" },
+  { key: "hoursFriday", value: "10:30-21:00" },
   { key: "hoursSaturday", value: "12:00-21:00" },
   { key: "hoursSunday", value: "12:00-19:00" }
 ];

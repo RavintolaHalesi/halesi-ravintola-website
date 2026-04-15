@@ -17,7 +17,7 @@ const translations = {
       "Welcome to Halesi! We bring you authentic and flavorful dishes inspired by Nepalese cuisine in a warm, cozy setting. Our restaurant is conveniently located at Hämeenkatu 27-29 in Hyvinkää just a 5-minute walk (about 400 meters) straight ahead on the same side from Willa Shopping Centre.",
     heroButton: "Reserve a Table",
     heroImage: "Add your main restaurant image here",
-    lunchText: "Enjoy our tasty and ever-changing lunch buffet menu on weekdays from 10:15 to 15:00.",
+    lunchText: "Enjoy our tasty and ever-changing lunch buffet menu on weekdays from 10:30 to 15:00.",
     menuTitle: "A la Carte Delights, Crafted for Every Craving",
     menuText:
       "We serve beautiful, hearty dishes from our a la carte menu during both lunch and dinner.",

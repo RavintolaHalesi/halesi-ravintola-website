@@ -256,34 +256,27 @@ export default function HomePage() {
         </section>
 
         <section id="reservation" className="reservationSection">
-          <div className="reservationIntro">
-            <h2>{t.reserveTitle}</h2>
-          </div>
-
           <div className="reservationLayout">
             <form className="reservationCard" onSubmit={handleSubmit}>
+              <h2 className="reservationCardTitle">{t.reserveTitle}</h2>
               <input name="name" type="text" placeholder={t.formName} required />
               <input name="phone" type="tel" placeholder={t.formPhone} required />
 
-              <div className="formRow compactRow">
-                <div className="pickerField">
-                  <input
-                    name="date"
-                    type="date"
-                    aria-label={t.formDate}
-                    required
-                  />
-                  <span className="pickerPlaceholder">{t.formDate}</span>
-                </div>
-                <div className="pickerField">
-                  <input
-                    name="time"
-                    type="time"
-                    aria-label={t.formTime}
-                    required
-                  />
-                  <span className="pickerPlaceholder">{t.formTime}</span>
-                </div>
+              <div className="formRow secondaryRow reservationPickerStack">
+                <input
+                  name="date"
+                  type="text"
+                  placeholder={t.formDate}
+                  aria-label={t.formDate}
+                  required
+                />
+                <input
+                  name="time"
+                  type="text"
+                  placeholder={t.formTime}
+                  aria-label={t.formTime}
+                  required
+                />
               </div>
 
               <div className="formRow secondaryRow">

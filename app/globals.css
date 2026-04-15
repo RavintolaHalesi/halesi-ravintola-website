@@ -158,7 +158,7 @@ input {
 
 .heroCopy h1,
 .textBlock h2,
-.reservationIntro h2,
+.reservationCardTitle,
 .contactCard h2,
 .card h3 {
     margin: 0 0 14px;
@@ -318,7 +318,7 @@ input {
 
 .card h3,
 .contactCard h2,
-.reservationIntro h2 {
+.reservationCardTitle {
     font-size: 2rem;
 }
 
@@ -351,7 +351,6 @@ input {
 
 .reservationSection {
     display: grid;
-    gap: 28px;
     align-items: start;
     background: #ffffff;
 }
@@ -369,11 +368,15 @@ input {
     padding: 26px;
 }
 
+.reservationCardTitle {
+    margin: 0 0 4px;
+    font-size: 2rem;
+    line-height: 1.12;
+}
+
 .reservationCard input {
     width: 100%;
     min-height: 56px;
-    -webkit-appearance: none;
-    appearance: none;
     margin-bottom: 0;
     border: 1px solid #d8b8a1;
     border-radius: 12px;
@@ -386,41 +389,14 @@ input {
     color: #8a6a5c;
 }
 
-.pickerField {
-    position: relative;
-}
-
-.pickerField input {
-    padding-right: 2.75rem;
-}
-
-.pickerField input::-webkit-datetime-edit {
-    color: transparent;
-}
-
-.pickerField input:focus::-webkit-datetime-edit,
-.pickerField input:valid::-webkit-datetime-edit {
-    color: var(--ink);
-}
-
-.pickerPlaceholder {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #8a6a5c;
-    pointer-events: none;
-}
-
-.pickerField input:focus + .pickerPlaceholder,
-.pickerField input:valid + .pickerPlaceholder {
-    display: none;
-}
-
 .formRow {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
+}
+
+.reservationPickerStack {
+    gap: 14px;
 }
 
 .reservationCard button {
@@ -574,7 +550,8 @@ input {
         padding: 18px;
     }
     .compactRow,
-    .secondaryRow {
+    .secondaryRow,
+    .reservationPickerStack {
         grid-template-columns: 1fr;
         gap: 14px;
     }

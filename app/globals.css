@@ -475,19 +475,123 @@ input {
 }
 
 .footer {
-    padding: 24px 32px;
+    margin-top: 24px;
     background: var(--brand);
-    text-align: center;
+    color: #fff7ef;
+    border-radius: 28px 28px 0 0;
+    overflow: hidden;
+}
+
+.footerTop {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 1fr 0.95fr;
+    gap: 30px;
+    padding: 38px 34px;
+}
+
+.footerBrandRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footerLogo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #fff;
+    padding: 8px;
+    flex: 0 0 auto;
+}
+
+.footerBrand h3,
+.footerLinks h4,
+.footerContact h4,
+.footerSocial h4 {
+    margin: 0 0 14px;
     color: #fff;
 }
 
-.footer p {
+.footerBrand h3 {
+    font-size: 1.85rem;
+}
+
+.footerBrand p,
+.footerContact p {
+    margin: 0;
+    color: rgba(255, 247, 239, 0.84);
+    line-height: 1.7;
+}
+
+.footerLinks,
+.footerContact,
+.footerSocial {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+}
+
+.footerLinks a,
+.footerContact a {
+    color: rgba(255, 247, 239, 0.92);
+    text-decoration: none;
+}
+
+.footerLinks a:hover,
+.footerContact a:hover {
+    color: #fff;
+}
+
+.footerSocialList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footerSocialList a {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.footerSocialList a:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.socialIcon {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.footerBottom {
+    padding: 18px 34px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+    color: rgba(255, 247, 239, 0.78);
+}
+
+.footerBottom p {
     margin: 0;
 }
 
 @media (max-width: 920px) {
     .lunchStrip p {
         white-space: normal;
+    }
+    .footerTop {
+        grid-template-columns: 1fr 1fr;
     }
     .heroSection,
     .twoColumn,
@@ -535,6 +639,19 @@ input {
 }
 
 @media (max-width: 640px) {
+    .footer {
+        border-radius: 24px 24px 0 0;
+    }
+    .footerTop {
+        grid-template-columns: 1fr;
+        padding: 32px 22px;
+    }
+    .footerBottom {
+        padding: 18px 22px 24px;
+    }
+    .footerBrand h3 {
+        font-size: 1.55rem;
+    }
     .heroSection,
     .contentSection,
     .reservationSection,

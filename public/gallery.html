@@ -24,7 +24,7 @@
         min-height: 100vh;
         font-family: Arial, Helvetica, sans-serif;
         color: var(--ink);
-        background: linear-gradient(180deg, #f5ece3 0%, #eadfd4 100%);
+        background: #ffffff;
       }
 
       a {
@@ -42,6 +42,7 @@
       }
 
       .topbar {
+        box-shadow: 0 10px 28px rgba(72, 39, 25, 0.12);
         position: sticky;
         top: 0;
         z-index: 20;
@@ -50,14 +51,14 @@
         align-items: center;
         gap: 1rem;
         padding-right: 1rem;
-        background: var(--brand);
+        background: #fff;
       }
 
       .logoPanel {
         display: grid;
         place-items: center;
         min-height: 108px;
-        background: #fff7f4;
+        background: #fff;
       }
 
       .logoPanel img {
@@ -71,10 +72,10 @@
         justify-self: end;
         width: 52px;
         height: 52px;
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(174, 33, 8, 0.22);
         border-radius: 14px;
         background: transparent;
-        color: #fff;
+        color: var(--brand);
         padding: 0;
         cursor: pointer;
       }
@@ -102,8 +103,9 @@
       }
 
       .nav a {
-        color: #fff;
-        font-size: 1.16rem;
+        color: var(--brand);
+        font-size: 1.28rem;
+        font-weight: 600;
       }
 
       .langSwitch {
@@ -112,15 +114,15 @@
       }
 
       .langBtn {
-        border: 1px solid rgba(255, 255, 255, 0.45);
+        border: 1px solid rgba(174, 33, 8, 0.32);
         background: transparent;
-        color: #fff;
+        color: var(--brand);
         padding: 0.45rem 0.7rem;
         cursor: pointer;
       }
 
       .langBtn.active {
-        background: rgba(255, 255, 255, 0.16);
+        background: rgba(174, 33, 8, 0.12);
       }
 
       .hero {
@@ -201,7 +203,7 @@
           border: 1px solid rgba(255, 255, 255, 0.22);
           border-radius: 14px;
           text-align: center;
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(174, 33, 8, 0.06);
         }
 
         .langSwitch {

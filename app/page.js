@@ -381,7 +381,7 @@ export default function HomePage() {
           <div className="mapEmbedCard">
             <iframe
               title="Halesi Ravintola location"
-              src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=H%C3%A4meenkatu%2027-29%2C%2005800%20Hyvink%C3%A4%C3%A4&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              src="https://www.google.com/maps?q=H%C3%A4meenkatu%2027-29%2C%2005800%20Hyvink%C3%A4%C3%A4&amp;z=17&amp;output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

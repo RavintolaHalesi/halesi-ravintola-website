@@ -122,8 +122,6 @@ function ImagePlaceholder({ label, tone = "warm" }) {
 export default function HomePage() {
   const [language, setLanguage] = useState("en");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [dateValue, setDateValue] = useState("");
-  const [timeValue, setTimeValue] = useState("");
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("halesi-language");
@@ -164,8 +162,6 @@ export default function HomePage() {
 
       setStatus({ type: "success", message: t.reservationSuccess });
       form.reset();
-      setDateValue("");
-      setTimeValue("");
     } catch (error) {
       setStatus({ type: "error", message: error.message || t.reservationError });
     } finally {
@@ -270,27 +266,23 @@ export default function HomePage() {
               <input name="phone" type="tel" placeholder={t.formPhone} required />
 
               <div className="formRow compactRow">
-                <div className={`pickerField ${dateValue ? "hasValue" : ""}`}>
+                <div className="pickerField">
                   <input
                     name="date"
                     type="date"
                     aria-label={t.formDate}
-                    value={dateValue}
-                    onChange={(event) => setDateValue(event.target.value)}
                     required
                   />
-                  {!dateValue && <span className="pickerPlaceholder">{t.formDate}</span>}
+                  <span className="pickerPlaceholder">{t.formDate}</span>
                 </div>
-                <div className={`pickerField ${timeValue ? "hasValue" : ""}`}>
+                <div className="pickerField">
                   <input
                     name="time"
                     type="time"
                     aria-label={t.formTime}
-                    value={timeValue}
-                    onChange={(event) => setTimeValue(event.target.value)}
                     required
                   />
-                  {!timeValue && <span className="pickerPlaceholder">{t.formTime}</span>}
+                  <span className="pickerPlaceholder">{t.formTime}</span>
                 </div>
               </div>
 

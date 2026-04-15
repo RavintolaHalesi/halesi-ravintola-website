@@ -372,6 +372,8 @@ input {
 .reservationCard input {
     width: 100%;
     min-height: 56px;
+    -webkit-appearance: none;
+    appearance: none;
     margin-bottom: 0;
     border: 1px solid #d8b8a1;
     border-radius: 12px;
@@ -393,12 +395,12 @@ input {
 }
 
 .pickerField input::-webkit-datetime-edit {
-    opacity: 0;
+    color: transparent;
 }
 
-.pickerField.hasValue input::-webkit-datetime-edit,
-.pickerField input:focus::-webkit-datetime-edit {
-    opacity: 1;
+.pickerField input:focus::-webkit-datetime-edit,
+.pickerField input:valid::-webkit-datetime-edit {
+    color: var(--ink);
 }
 
 .pickerPlaceholder {
@@ -410,8 +412,8 @@ input {
     pointer-events: none;
 }
 
-.pickerField.hasValue .pickerPlaceholder,
-.pickerField input:focus+.pickerPlaceholder {
+.pickerField input:focus + .pickerPlaceholder,
+.pickerField input:valid + .pickerPlaceholder {
     display: none;
 }
 
@@ -571,10 +573,7 @@ input {
         gap: 14px;
         padding: 18px;
     }
-    .compactRow {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+    .compactRow,
     .secondaryRow {
         grid-template-columns: 1fr;
         gap: 14px;

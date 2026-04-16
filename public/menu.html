@@ -125,15 +125,11 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-        gap: 28px;
-        padding: 40px 32px;
-        align-items: center;
+        padding: 40px 32px 24px;
       }
 
       .heroCard,
-      .placeholderCard {
+      .menuImageCard {
         border: 1px solid var(--border);
         border-radius: 20px;
         background: var(--cream);
@@ -156,41 +152,39 @@
         color: var(--muted);
       }
 
-      .placeholderCard {
-        min-height: 280px;
-        display: grid;
-        place-items: center;
-        text-align: center;
-        padding: 24px;
-        color: var(--brand-dark);
-        background:
-          linear-gradient(135deg, rgba(174, 33, 8, 0.08), rgba(255, 255, 255, 0.7)),
-          linear-gradient(180deg, #fdf6f0 0%, #f6ebe2 100%);
-      }
-
       .sections {
         padding: 0 32px 40px;
         display: grid;
-        gap: 20px;
+        gap: 22px;
       }
 
-      .menuBlock {
-        padding: 24px 28px;
+      .menuIntro {
+        padding: 20px 24px;
         border: 1px solid var(--border);
         border-radius: 18px;
         background: var(--cream);
       }
 
-      .menuBlock h2 {
-        margin: 0 0 10px;
-        font-size: 1.8rem;
+      .menuIntro p {
+        margin: 0;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
       }
 
-      .menuBlock p {
-        margin: 0;
-        font-size: 1.06rem;
-        line-height: 1.6;
-        color: var(--muted);
+      .menuGallery {
+        display: grid;
+        gap: 22px;
+      }
+
+      .menuImageCard {
+        overflow: hidden;
+      }
+
+      .menuImageCard img {
+        width: 100%;
+        display: block;
+        height: auto;
       }
 
       @media (max-width: 800px) {
@@ -236,8 +230,7 @@
         }
 
         .hero {
-          grid-template-columns: 1fr;
-          padding: 28px 18px;
+          padding: 28px 18px 18px;
         }
 
         .sections {
@@ -276,24 +269,25 @@
       <section class="hero">
         <div class="heroCard">
           <h1 data-i18n="title">Menu</h1>
-        </div>
-        <div class="placeholderCard">
-          <strong data-i18n="placeholder">Menu photos or design can be added here later</strong>
+          <p data-i18n="intro">Browse a preview of our menu below. We can add the remaining pages in the same style after this.</p>
         </div>
       </section>
 
       <section class="sections">
-        <div class="menuBlock">
-          <h2 data-i18n="lunchTitle">Lunch Menu</h2>
-          <p data-i18n="lunchText">We can add weekday lunch details here later.</p>
+        <div class="menuIntro">
+          <p data-i18n="previewLabel">This is a preview with the first 3 menu pages.</p>
         </div>
-        <div class="menuBlock">
-          <h2 data-i18n="alaTitle">A La Carte</h2>
-          <p data-i18n="alaText">We can add full dish names, descriptions, and prices here later.</p>
-        </div>
-        <div class="menuBlock">
-          <h2 data-i18n="drinksTitle">Drinks</h2>
-          <p data-i18n="drinksText">Soft drinks, lassi, tea, coffee, and other beverages can be listed here.</p>
+
+        <div class="menuGallery">
+          <div class="menuImageCard">
+            <img src="/assets/menu-page-1.jpeg" alt="Ravintola Halesi menu page 1" />
+          </div>
+          <div class="menuImageCard">
+            <img src="/assets/menu-page-2.jpeg" alt="Ravintola Halesi menu page 2" />
+          </div>
+          <div class="menuImageCard">
+            <img src="/assets/menu-page-3.jpeg" alt="Ravintola Halesi menu page 3" />
+          </div>
         </div>
       </section>
     </div>
@@ -308,13 +302,8 @@
           navContact: "Contact",
           navAbout: "About Us",
           title: "Menu",
-          placeholder: "Menu photos or design can be added here later",
-          lunchTitle: "Lunch Menu",
-          lunchText: "We can add weekday lunch details here later.",
-          alaTitle: "A La Carte",
-          alaText: "We can add full dish names, descriptions, and prices here later.",
-          drinksTitle: "Drinks",
-          drinksText: "Soft drinks, lassi, tea, coffee, and other beverages can be listed here."
+          intro: "Browse a preview of our menu below. We can add the remaining pages in the same style after this.",
+          previewLabel: "This is a preview with the first 3 menu pages."
         },
         fi: {
           navHome: "Etusivu",
@@ -324,13 +313,8 @@
           navContact: "Yhteystiedot",
           navAbout: "Meistä",
           title: "Menu",
-          placeholder: "Menukuvat tai suunnittelu voidaan lisätä tähän myöhemmin",
-          lunchTitle: "Lounasmenu",
-          lunchText: "Voimme lisätä tähän arkilounaan tiedot myöhemmin.",
-          alaTitle: "A la carte",
-          alaText: "Voimme lisätä tähän annosten nimet, kuvaukset ja hinnat myöhemmin.",
-          drinksTitle: "Juomat",
-          drinksText: "Virvoitusjuomat, lassi, tee, kahvi ja muut juomat voidaan listata tähän."
+          intro: "Selaa alta menu-esikatselua. Voimme lisätä loput sivut samaan tyyliin tämän jälkeen.",
+          previewLabel: "Tässä on esikatselu kolmesta ensimmäisestä menusivusta."
         }
       };
 

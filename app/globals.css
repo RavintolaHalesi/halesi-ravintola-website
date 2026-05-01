@@ -245,7 +245,8 @@ input {
 }
 
 .heroPhotoCard {
-    min-height: 420px;
+    height: 420px;
+    display: grid;
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -256,6 +257,7 @@ input {
 .heroPhoto {
     width: 100%;
     height: 100%;
+    min-height: 100%;
     display: block;
     object-fit: cover;
 }
@@ -656,7 +658,7 @@ input {
 
 @media (max-width: 640px) {
     .heroPhotoCard {
-        min-height: 300px;
+        height: 300px;
     }
     .footer {
         border-radius: 24px 24px 0 0;

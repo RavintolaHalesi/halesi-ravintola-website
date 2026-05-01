@@ -277,7 +277,7 @@ export default function HomePage() {
               {t.heroButton}
             </a>
           </div>
-          <ImagePlaceholder label={t.heroImage} tone="warm" />
+          <div className="heroPhotoCard"><img src="/assets/hero-restaurant.jpeg" alt="Ravintola Halesi interior" className="heroPhoto" /></div>
         </section>
 
         <section className="lunchStrip">

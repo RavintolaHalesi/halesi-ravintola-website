@@ -40,6 +40,52 @@
         min-height: 100vh;
       }
 
+      .popupOverlay {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(30, 18, 12, 0.58);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .popupCard {
+        position: relative;
+        width: min(92vw, 560px);
+        max-height: 92vh;
+        overflow: hidden;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 24px 60px rgba(40, 18, 10, 0.34);
+      }
+
+      .popupImage {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .popupClose {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(26, 12, 8, 0.72);
+        color: #fff;
+        font-size: 1.9rem;
+        line-height: 1;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       .topbar {
         box-shadow: 0 10px 28px rgba(72, 39, 25, 0.12);
         position: sticky;
@@ -188,6 +234,22 @@
       }
 
       @media (max-width: 800px) {
+        .popupOverlay {
+          padding: 14px;
+        }
+
+        .popupCard {
+          width: min(94vw, 420px);
+          border-radius: 18px;
+        }
+
+        .popupClose {
+          top: 10px;
+          right: 10px;
+          width: 38px;
+          height: 38px;
+          font-size: 1.65rem;
+        }
         .topbar {
           grid-template-columns: 108px 1fr;
           padding-right: 18px;
@@ -240,6 +302,13 @@
     </style>
   </head>
   <body>
+    <div class="popupOverlay" id="lunchPopup" role="dialog" aria-modal="true" aria-label="Lunch buffet promotion">
+      <div class="popupCard">
+        <button class="popupClose" type="button" aria-label="Close popup">×</button>
+        <img src="/assets/lunch-popup.jpeg" alt="Lunch buffet promotion" class="popupImage" />
+      </div>
+    </div>
+
     <div class="page">
       <header class="topbar">
         <a class="logoPanel" href="/#home">
@@ -312,10 +381,24 @@
         }
       };
 
+      const lunchPopup = document.getElementById('lunchPopup');
+      const popupClose = document.querySelector('.popupClose');
       const buttons = document.querySelectorAll('.langBtn');
       const nodes = document.querySelectorAll('[data-i18n]');
       const mobileMenuBtn = document.querySelector('.mobileMenuBtn');
       const topbar = document.querySelector('.topbar');
+
+      if (popupClose && lunchPopup) {
+        popupClose.addEventListener('click', () => {
+          lunchPopup.style.display = 'none';
+        });
+
+        lunchPopup.addEventListener('click', (event) => {
+          if (event.target === lunchPopup) {
+            lunchPopup.style.display = 'none';
+          }
+        });
+      }
 
       function applyLanguage(language) {
         document.documentElement.lang = language;

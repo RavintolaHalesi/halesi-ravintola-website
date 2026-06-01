@@ -213,6 +213,12 @@ input {
     border-bottom: 1px solid var(--border);
 }
 
+.lunchCopy {
+    display: grid;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
 .lunchStrip p {
     margin: 0;
     color: #fff;
@@ -222,6 +228,14 @@ input {
     white-space: nowrap;
     font-size: clamp(1.35rem, 2vw, 2.2rem);
     line-height: 1.2;
+}
+
+.lunchDiscount {
+    color: #fff;
+    font-size: clamp(1.05rem, 1.5vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
 }
 
 .priceTag {
@@ -680,7 +694,7 @@ input {
         padding: 22px 18px;
     }
     .lunchStrip {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         align-items: flex-start;
     }
     .reservationCard {

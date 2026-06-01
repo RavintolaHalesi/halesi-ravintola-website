@@ -18,6 +18,7 @@ const translations = {
     heroButton: "Reserve a Table",
     heroImage: "Add your main restaurant image here",
     lunchText: "Enjoy our tasty and ever-changing lunch buffet menu on weekdays from 10:30 to 15:00.",
+    lunchDiscount: "Pensioners and Students -15%",
     menuTitle: "A la Carte Delights, Crafted for Every Craving",
     menuText:
       "We serve beautiful, hearty dishes from our a la carte menu during both lunch and dinner.",
@@ -74,7 +75,8 @@ const translations = {
       "Tervetuloa Halesiin. Tarjoamme aitoja nepalilaisia makuja lampimassa ja viihtyisassa ravintolassa Hyvinkaan keskustassa, vain lyhyen kavelymatkan paassa Willa-kauppakeskuksesta.",
     heroButton: "Varaa poyta",
     heroImage: "Lisaa paakuva tahan",
-    lunchText: "Nauti maistuvasta ja vaihtuvasta lounaastamme arkisin klo 10.15-15.00.",
+    lunchText: "Nauti maistuvasta ja vaihtuvasta lounaastamme arkisin klo 10.30-15.00.",
+    lunchDiscount: "Eläkeläiset ja Opiskelijat -15%",
     menuTitle: "A la carte -annoksia jokaiseen mielitekoon",
     menuText:
       "Tarjoilemme kauniita ja ruokaisia annoksia a la carte -listaltamme niin lounaalla kuin illallisella.",
@@ -281,7 +283,10 @@ export default function HomePage() {
         </section>
 
         <section className="lunchStrip">
-          <p>{t.lunchText}</p>
+          <div className="lunchCopy">
+            <p>{t.lunchText}</p>
+            <span className="lunchDiscount">{t.lunchDiscount}</span>
+          </div>
           <span className="priceTag">12,90€</span>
         </section>
 

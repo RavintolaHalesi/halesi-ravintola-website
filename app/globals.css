@@ -41,6 +41,54 @@ input {
     padding: 0;
 }
 
+.openingNoticeOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(30, 18, 12, 0.58);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.openingNoticeCard {
+    position: relative;
+    width: min(94vw, 820px);
+    max-height: 92vh;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 24px 60px rgba(40, 18, 10, 0.34);
+}
+
+.openingNoticeImage {
+    width: 100%;
+    height: auto;
+    max-height: 92vh;
+    display: block;
+    object-fit: contain;
+}
+
+.openingNoticeClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(26, 12, 8, 0.72);
+    color: #fff;
+    font-size: 1.9rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .shell {
     width: 100%;
     min-height: 100vh;
@@ -671,6 +719,20 @@ input {
 }
 
 @media (max-width: 640px) {
+    .openingNoticeOverlay {
+        padding: 12px;
+    }
+    .openingNoticeCard {
+        width: min(96vw, 420px);
+        border-radius: 14px;
+    }
+    .openingNoticeClose {
+        top: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.65rem;
+    }
     .heroPhotoCard {
         height: 300px;
     }

@@ -174,6 +174,7 @@ function SocialIcon({ platform }) {
 export default function HomePage() {
   const [language, setLanguage] = useState("en");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [showOpeningNotice, setShowOpeningNotice] = useState(true);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("halesi-language");
@@ -222,7 +223,23 @@ export default function HomePage() {
   }
 
   return (
-    <><ScrollReset /><main className="page">
+    <><ScrollReset />
+      {showOpeningNotice ? (
+        <div className="openingNoticeOverlay" role="dialog" aria-modal="true" aria-label="Restaurant opening notice">
+          <div className="openingNoticeCard">
+            <button
+              type="button"
+              className="openingNoticeClose"
+              aria-label="Close notice"
+              onClick={() => setShowOpeningNotice(false)}
+            >
+              ×
+            </button>
+            <img src="/assets/opening-notice-popup.jpeg" alt="Restaurant opening notice" className="openingNoticeImage" />
+          </div>
+        </div>
+      ) : null}
+      <main className="page">
       <div className="shell">
         <header className={`topbar ${mobileNavOpen ? "mobileNavOpen" : ""}`}>
           <a className="logoPanel" href="#home" aria-label="Halesi Ravintola home">

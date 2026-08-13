@@ -235,7 +235,7 @@ export default function HomePage() {
             >
               ×
             </button>
-            <img src="/assets/tuesday-lunch-popup.jpeg" alt="Thursday lunch menu" className="openingNoticeImage" />
+            <img src="/assets/thursday-lunch-popup.jpeg" alt="Thursday lunch menu" className="openingNoticeImage" />
           </div>
         </div>
       ) : null}

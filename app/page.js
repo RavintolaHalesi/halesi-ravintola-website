@@ -225,7 +225,7 @@ export default function HomePage() {
   return (
     <><ScrollReset />
       {showOpeningNotice ? (
-        <div className="openingNoticeOverlay" role="dialog" aria-modal="true" aria-label="Wednesday lunch menu notice">
+        <div className="openingNoticeOverlay" role="dialog" aria-modal="true" aria-label="Thursday lunch menu notice">
           <div className="openingNoticeCard">
             <button
               type="button"
@@ -235,7 +235,7 @@ export default function HomePage() {
             >
               ×
             </button>
-            <img src="/assets/wednesday-lunch-popup-2026-08-18.jpeg" alt="Wednesday lunch menu" className="openingNoticeImage" />
+            <img src="/assets/thursday-lunch-popup-2026-08-19.jpeg" alt="Thursday lunch menu" className="openingNoticeImage" />
           </div>
         </div>
       ) : null}

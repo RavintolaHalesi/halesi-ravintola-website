@@ -57,6 +57,7 @@ const translations = {
     footerRights: "© 2026 Ravintola Halesi. All rights reserved.",
     footerInstagram: "Instagram",
     footerFacebook: "Facebook",
+    footerOiva: "Oiva",
     footerTikTok: "TikTok",
     footerLinkedIn: "LinkedIn",
     reservationSuccess: "Reservation received successfully. The email notification was sent.",
@@ -115,6 +116,7 @@ const translations = {
     footerRights: "© 2026 Ravintola Halesi. Kaikki oikeudet pidatetty.",
     footerInstagram: "Instagram",
     footerFacebook: "Facebook",
+    footerOiva: "Oiva",
     footerTikTok: "TikTok",
     footerLinkedIn: "LinkedIn",
     reservationSuccess: "Varaus vastaanotettiin onnistuneesti. Ilmoitussahkoposti lahetettiin.",
@@ -448,6 +450,7 @@ export default function HomePage() {
               <a href="#reservation">{t.navReservation}</a>
               <a href="#contact">{t.navContact}</a>
               <a href="#about">{t.navAbout}</a>
+              <a href="/assets/oiva-report.jpeg" target="_blank" rel="noreferrer">{t.footerOiva}</a>
               <a href="/gallery.html">{t.navGallery}</a>
             </div>
 
@@ -462,8 +465,8 @@ export default function HomePage() {
               <h4>{t.footerSocial}</h4>
               <div className="footerSocialList">
                 <a href="https://www.instagram.com/ravintolahalesi/" target="_blank" rel="noreferrer" aria-label={t.footerInstagram}><SocialIcon platform="instagram" /></a>
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label={t.footerFacebook}><SocialIcon platform="facebook" /></a>
-                <a href="https://www.tiktok.com/@ravintolahalesi?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" aria-label={t.footerTikTok}><SocialIcon platform="tiktok" /></a>
+                <a href="https://www.facebook.com/share/19NfPrsZKT/" target="_blank" rel="noreferrer" aria-label={t.footerFacebook}><SocialIcon platform="facebook" /></a>
+                <a href="https://www.tiktok.com/@ravintolahalesihyvinkaa?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" aria-label={t.footerTikTok}><SocialIcon platform="tiktok" /></a>
                 <a href="https://www.linkedin.com/in/ravintola-halesi-05991b403/" target="_blank" rel="noreferrer" aria-label={t.footerLinkedIn}><SocialIcon platform="linkedin" /></a>
               </div>
             </div>

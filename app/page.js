@@ -450,7 +450,6 @@ export default function HomePage() {
               <a href="#reservation">{t.navReservation}</a>
               <a href="#contact">{t.navContact}</a>
               <a href="#about">{t.navAbout}</a>
-              <a href="/assets/oiva-report.jpeg" target="_blank" rel="noreferrer">{t.footerOiva}</a>
               <a href="/gallery.html">{t.navGallery}</a>
             </div>
 
@@ -468,6 +467,7 @@ export default function HomePage() {
                 <a href="https://www.facebook.com/share/19NfPrsZKT/" target="_blank" rel="noreferrer" aria-label={t.footerFacebook}><SocialIcon platform="facebook" /></a>
                 <a href="https://www.tiktok.com/@ravintolahalesihyvinkaa?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" aria-label={t.footerTikTok}><SocialIcon platform="tiktok" /></a>
                 <a href="https://www.linkedin.com/in/ravintola-halesi-05991b403/" target="_blank" rel="noreferrer" aria-label={t.footerLinkedIn}><SocialIcon platform="linkedin" /></a>
+                <a href="/assets/oiva-report.jpeg" target="_blank" rel="noreferrer" aria-label={t.footerOiva} className="oivaSocialLink"><img src="/assets/oiva-icon.jpg" alt="" /></a>
               </div>
             </div>
           </div>

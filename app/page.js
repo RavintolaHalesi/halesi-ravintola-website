@@ -176,7 +176,17 @@ function SocialIcon({ platform }) {
 export default function HomePage() {
   const [language, setLanguage] = useState("en");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [showLunchNotice, setShowLunchNotice] = useState(true);
+  const [popupIndex, setPopupIndex] = useState(0);
+  const popups = [
+    {
+      src: "/assets/thursday-lunch-popup-2026-11-04.jpeg",
+      alt: "Thursday lunch menu"
+    },
+    {
+      src: "/assets/mango-lassi-fathers-day-popup-2026-11-08.jpeg",
+      alt: "Father's Day free mango lassi promotion"
+    }
+  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("halesi-language");
@@ -226,18 +236,18 @@ export default function HomePage() {
 
   return (
     <><ScrollReset />
-      {showLunchNotice ? (
-        <div className="openingNoticeOverlay" role="dialog" aria-modal="true" aria-label="Monday lunch menu notice">
+      {popupIndex < popups.length ? (
+        <div className="openingNoticeOverlay" role="dialog" aria-modal="true" aria-label={popups[popupIndex].alt}>
           <div className="openingNoticeCard">
             <button
               type="button"
               className="openingNoticeClose"
               aria-label="Close notice"
-              onClick={() => setShowLunchNotice(false)}
+              onClick={() => setPopupIndex((currentIndex) => currentIndex + 1)}
             >
               ×
             </button>
-            <img src="/assets/monday-lunch-popup-2026-08-31.jpeg" alt="Monday lunch menu" className="openingNoticeImage" />
+            <img src={popups[popupIndex].src} alt={popups[popupIndex].alt} className="openingNoticeImage" />
           </div>
         </div>
       ) : null}

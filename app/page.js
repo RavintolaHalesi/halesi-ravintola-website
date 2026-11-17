@@ -447,6 +447,17 @@ export default function HomePage() {
                   <p>{t.footerBrandBlurb}</p>
                 </div>
               </div>
+              <a
+                id="rg26-b-circledLeaves27"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://restaurantguru.com/Ravintola-Halesi-Nepalilainen-Ravintola-Halesi-Nepalese-Restaurant-Halesi-Hyvinkaeae"
+                className="rg26-b-circledLeaves27--light rg26-b-circledLeaves27--2025"
+              >
+                <span className="rg26-b-circledLeaves27__title">Recommended</span>
+                <span className="rg26-b-circledLeaves27__separator" />
+                <span className="rg26-b-circledLeaves27__name">Ravintola Halesi / Nepalilainen Ravintola Halesi / Nepalese Restaurant Halesi</span>
+              </a>
             </div>
 
             <div className="footerLinks">

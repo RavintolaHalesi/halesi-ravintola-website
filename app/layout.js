@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link href="https://awards.infcdn.net/2026_new/badge-circledLeaves27.css" rel="stylesheet" />
         <script async src={"https://www.googletagmanager.com/gtag/js?id=" + googleTagId} />
         <script
           dangerouslySetInnerHTML={{

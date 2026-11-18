@@ -179,8 +179,8 @@ export default function HomePage() {
   const [popupIndex, setPopupIndex] = useState(0);
   const popups = [
     {
-      src: "/assets/monday-lunch-popup-2026-08-31.jpeg",
-      alt: "Monday lunch menu"
+      src: "/assets/thursday-lunch-popup-2026-08-26.jpeg",
+      alt: "Thursday lunch menu"
     }
   ];
 
